@@ -1,6 +1,6 @@
 # Inactive Youth in Pakistan: Does Inequality of Opportunity Matter?
 
-This repository contains code for the research paper titled "Inactive Youth in Pakistan: Does Inequality of Opportunity Matter?". The data for this study was taken from Labour Force Publications | Pakistan Bureau of Statistics (pbs.gov.pk) for the year 2018-19.
+This repository contains code for the research paper titled "Inactive Youth in Pakistan: Does Inequality of Opportunity Matter?". The data for this study was taken from Labour Force Publications | Pakistan Bureau of Statistics (pbs.gov.pk) for the year 2017-18.
 
 ## 1. Data Extraction in R
 
