@@ -1,0 +1,39 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+
+```{r}
+library(tidyr)
+library(readxl)
+library(dplyr)
+library(writexl)
+```
+
+
+```{r}
+df <-  read_excel('LFS.xlsx')
+```
+
+```{r}
+head(df)
+```
+```{r}
+df <- df %>% 
+  select(PrCode, RespSex, S04C06, S04C09, S04C10, S05C01, S05C02, Weight) %>% 
+  rename(Age = S04C06, 
+         Education = S04C09, 
+         Current_Enrollment = S04C10, 
+         Employment_Status = S05C01, 
+         Work_done = S05C02) %>% 
+  drop_na()
+```
+
+
+```{r}
+write_xlsx(df, "data.xlsx")
+```
+
+

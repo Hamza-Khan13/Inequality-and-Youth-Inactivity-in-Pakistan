@@ -1,0 +1,53 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+#libraries
+library(readxl)
+```
+
+
+```{r}
+df <- read_xlsx('Final_data.xlsx')
+```
+
+```{r}
+head(df)
+```
+```{r}
+df$Age_category <- ifelse(df$Age >= 15 & df$Age <= 19, "Teens",
+                          ifelse(df$Age >= 20 & df$Age <= 24, "Adults", NA))
+```
+
+
+```{r}
+log_reg <- glm(Inactive ~ Age_category + factor(RespSex)  + Qualification  + factor(Location_type) + 
+                 factor(Province), family =binomial, data = df)
+```
+
+```{r}
+summary(log_reg)
+```
+```{r}
+table(df$Current_Enrollment)
+```
+
+```{r}
+exp(coef(log_reg))
+```
+```{r}
+odd_ratio <- or_glm(data = df, model = log_reg)
+```
+
+```{r}
+odd_ratio
+```
+
+
+
+```{r}
+write_xlsx(odd_ratio, 'odds_ratio_table.xlsx')
+```
+
